@@ -24,6 +24,7 @@
 - 기본 요구 사항
   - 캐글 토큰을 필요로 합니다. 자세한 사항은 https://www.kaggle.com/docs/api#getting-started-installation-&-authentication을 참고하세요.
   - postgreDB가 설치가 되어 있어야 하며, 'postgres' database가 기본적으로 생성이 되어 있어야 합니다.
+  - project_app 디렉토리의 .env파일이 적절히 생성되어있어야합니다.
 
 - 추가로 install이 필요한 라이브러리
   - kaggle
