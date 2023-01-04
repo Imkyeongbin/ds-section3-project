@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Material Bootstrap Wizard by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/material-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="assets/css/demo.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="image-container set-full-height" style="background-image: url('assets/img/wizard-book.jpg')">
+	    <!--   Creative Tim Branding   -->
+	    <a href="http://creative-tim.com">
+	         <div class="logo-container">
+	            <div class="logo">
+	                <img src="assets/img/new_logo.png">
+	            </div>
+	            <div class="brand">
+	                Section 3
+									프로젝트
+	            </div>
+	        </div>
+	    </a>
+
+		<!--  Made With Material Kit  -->
+		<a href="http://demos.creative-tim.com/material-kit/index.html?ref=material-bootstrap-wizard" class="made-with-mk">
+			<div class="brand">MK</div>
+			<div class="made-with">Made with <strong>Material Kit</strong></div>
+		</a>
+
+	    <!--   Big container   -->
+	    <div class="container">
+	        <div class="row">
+		        <div class="col-sm-8 col-sm-offset-2">
+		            <!--      Wizard container        -->
+		            <div class="wizard-container">
+		                <div class="card wizard-card" data-color="red" id="wizard">
+		                    <form action="{{ url_for('result.result') }}" method="post" >
+		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
+
+		                    	<div class="wizard-header">
+		                        	<h3 class="wizard-title">
+		                        		뇌졸중 검사입니다.
+		                        	</h3>
+									<h5>This information will let us know more about you.</h5>
+		                    	</div>
+								<div class="wizard-navigation">
+									<ul>
+			                            <li><a href="#details" data-toggle="tab">Test</a></li>
+			                            <!-- <li><a href="#captain" data-toggle="tab">Room Type</a></li> -->
+			                            <li><a href="#description" data-toggle="tab">ADMIN</a></li>
+			                        </ul>
+								</div>
+
+		                        <div class="tab-content">
+		                            <div class="tab-pane" id="details">
+		                            	<div class="row">
+			                            	<div class="col-sm-12">
+			                                	<h4 class="info-text"> 현재 검사지의 roc-auc 점수는 100점 만점에 {{ (100 * score)|round(3) }}입니다.</h4>
+			                            	</div>
+		                                	<div class="col-sm-6 porel">
+												<div class="input-group wid100">
+													<div class="form-group label-floating">
+                                                        <label class="control-label">Your gender</label>
+                                                        <select class="form-control" name="gender">
+                                                            <option disabled="" selected=""></option>
+                                                            <option value="Male"> 남성 </option>
+                                                            <option value="Female"> 여성 </option>
+                                                        </select>
+			                                        </div>
+												
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Your Age</label>
+			                                          	<input name="age" type="number" min="0" class="form-control">
+			                                        </div>
+
+													
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Hypertension</label>
+			                                          	<select class="form-control" name="hypertension">
+                                                            <option disabled="" selected=""></option>
+                                                            <option value="1"> 있음 </option>
+                                                            <option value="0"> 없음 </option>
+                                                        </select>
+			                                        </div>
+
+													
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Heart disease</label>
+			                                          	<select class="form-control" name="heart_disease">
+                                                            <option disabled="" selected=""></option>
+                                                            <option value="1"> 있음 </option>
+                                                            <option value="0"> 없음 </option>
+                                                        </select>
+			                                        </div>
+
+													
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Ever married</label>
+			                                          	<select class="form-control" name="ever_married">
+                                                            <option disabled="" selected=""></option>
+                                                            <option value="1"> 있음 </option>
+                                                            <option value="0"> 없음 </option>
+                                                        </select>
+			                                        </div>
+												</div>
+
+		                                	</div>
+		                                	<div class="col-sm-6 porel">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">Your work type</label>
+	                                        		<select class="form-control" name="work_type">
+														<option disabled="" selected=""></option>
+	                                                	<option value="Private"> 민간업자 </option>
+	                                                	<option value="Self-employed"> 자영업자 </option>
+	                                                	<option value="Govt_job"> 공무원 </option>
+	                                                	<option value="children"> 어린이 </option>
+	                                                	<option value="Never_worked"> 무직 </option>
+		                                        	</select>
+		                                    	</div>
+												<div class="form-group label-floating">
+		                                        	<label class="control-label">Your residence type</label>
+	                                        		<select class="form-control" name="Residence_type">
+														<option disabled="" selected=""></option>
+	                                                	<option value="Urban"> 도시 </option>
+	                                                	<option value="Rural"> 시골 </option>
+		                                        	</select>
+		                                    	</div>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Your average glucose level</label>
+                                                    <input name="avg_glucose_level" type="number" min="0" class="form-control">
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Your bmi</label>
+                                                    <input name="bmi" type="number" min="0" class="form-control">
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Smoking</label>
+                                                    <select class="form-control" name="smoking_status">
+                                                      <option disabled="" selected=""></option>
+                                                      <option value="never smoked"> 흡연한 적 없음 </option>
+                                                      <option value="formerly smoked"> 금연함 </option>
+                                                      <option value="smokes"> 흡연함 </option>
+                                                      <option value="Unknown"> 모름 </option>
+                                                  </select>
+                                              </div>        
+                                        
+		                                	</div>
+		                            	</div>
+		                            </div>
+		                            <div class="tab-pane" id="captain">
+		                                <h4 class="info-text">What type of room would you want? </h4>
+		                                <div class="row">
+		                                    <div class="col-sm-10 col-sm-offset-1">
+		                                        <div class="col-sm-4">
+		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone.">
+		                                                <input type="radio" name="job" value="Design">
+		                                                <div class="icon">
+		                                                    <i class="material-icons">weekend</i>
+		                                                </div>
+		                                                <h6>Single</h6>
+		                                            </div>
+		                                        </div>
+		                                        <div class="col-sm-4">
+		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this room if you're traveling with your family.">
+		                                                <input type="radio" name="job" value="Code">
+		                                                <div class="icon">
+		                                                    <i class="material-icons">home</i>
+		                                                </div>
+		                                                <h6>Family</h6>
+		                                            </div>
+		                                        </div>
+												<div class="col-sm-4">
+		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you are coming with your team.">
+		                                                <input type="radio" name="job" value="Code">
+		                                                <div class="icon">
+		                                                    <i class="material-icons">business</i>
+		                                                </div>
+		                                                <h6>Business</h6>
+		                                            </div>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="tab-pane" id="description">
+		                                <div class="row">
+		                                    <button type="button" onclick="location.href='http://localhost:3000'">메타베이스로</button>
+		                                    <div class="col-sm-6 col-sm-offset-1">
+	                                    		<div class="form-group">
+		                                            <label>관리자 비밀번호</label>
+		                                            <input name="password" type="password" class="form-control">
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-4">
+		                                    	<div class="form-group">
+		                                            <label class="control-label">Console</label>
+		                                            <span class="description" id="consoleLine"></span>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+	                        	<div class="wizard-footer">
+	                            	<div class="pull-right">
+	                                    <input type='submit' class='btn btn-submit btn-fill btn-danger btn-wd' name='next' value='제출'  onclick="return submitCheck();"/>
+	                                    <button type="button" class='btn btn-fill btn-danger btn-refresh' name='refresh' onclick="data_refresh(); ">Refresh</button>
+	                                </div>
+	                                <div class="pull-left">
+	                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+
+										<div class="footer-checkbox">
+											<div class="col-sm-12">
+											  <!-- <div class="checkbox">
+												  <label>
+													  <input type="checkbox" name="optionsCheckboxes">
+												  </label>
+												  Subscribe to our newsletter
+											  </div> -->
+										  </div>
+										</div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                        	</div>
+		                    </form>
+		                </div>
+		            </div> <!-- wizard container -->
+		        </div>
+	    	</div> <!-- row -->
+		</div> <!--  big container -->
+
+	    <div class="footer">
+	        <div class="container text-center">
+	             Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>. Free download <a href="http://www.creative-tim.com/product/material-bootstrap-wizard">here.</a>
+	        </div>
+	    </div>
+	</div>
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.bootstrap.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="assets/js/material-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="assets/js/jquery.validate.min.js"></script>
+</html>
+<script>
+    function submitCheck(){
+        if(
+            isTruthy(document.getElementsByName('gender')[0].value) &&
+            isTruthy(document.getElementsByName('age')[0].value) &&
+            isTruthy(document.getElementsByName('hypertension')[0].value) &&
+            isTruthy(document.getElementsByName('heart_disease')[0].value) &&
+            isTruthy(document.getElementsByName('ever_married')[0].value) &&
+            isTruthy(document.getElementsByName('work_type')[0].value) &&
+            isTruthy(document.getElementsByName('Residence_type')[0].value) &&
+            isTruthy(document.getElementsByName('avg_glucose_level')[0].value) &&
+            isTruthy(document.getElementsByName('bmi')[0].value) &&
+            isTruthy(document.getElementsByName('smoking_status')[0].value)
+        ){
+            return true
+        }
+        alert('빈 칸을 채워주세요')
+        return false
+    }
+    function data_refresh() {
+        password = document.getElementsByName('password')[0].value
+        consoleLine = document.getElementById('consoleLine')
+        fetch("/admin/refresh", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                password: password                
+            }),
+            }).then(res => res.json())
+            .then((json) => {
+                console.log('then')
+                consoleLine.innerText += json['message']
+            })
+        consoleLine.innerText = "데이터 리프레쉬가 진행중입니다. 잠시만 기다려주세요. \n"
+    }
+    function isTruthy(val) {
+        if(val !== null && val !== undefined && val !== ''){
+            return true
+        }
+        return false
+    }
+</script>
+<style>
+    .porel{
+        position: relative;
+    }
+    .wid100{
+        width: 100%;
+    }
+
+</style>

@@ -1,0 +1,10 @@
+#적절히 설정후에 파일명을 .env로 변경하여 적용한다.
+# DB 리프레쉬용 패스워드
+REFRESH_PASSWORD=adbc123 # DB 리프레쉬 패스워드 설정
+
+# DB 설정
+DATABASE_HOST=localhost #DB 호스트
+DATABASE_PORT=5432 #DB 포트
+DATABASE_DBNAME=postgres
+DATABASE_USERNAME=postgres #DB 유저네임
+DATABASE_PASSWORD=aiboot #DB 패스워드
