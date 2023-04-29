@@ -1,7 +1,7 @@
 # __init__.py
 
 from flask import Flask
-from project_app.modules import downloader, db, pandas_tool, ml_tool, pickle_tool
+from modules import downloader, db, pandas_tool, ml_tool, pickle_tool
 
 def create_app():
   app = Flask(__name__, static_url_path='')

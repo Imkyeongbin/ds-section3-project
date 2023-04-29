@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
+from sqlalchemy.sql import text
 
 load_dotenv()
 
@@ -25,24 +26,26 @@ url = URL.create(
 def get_engine():
     return create_engine(url)
 
+
 def recreate_table():
     engine = get_engine()
-    engine.execute("DROP TABLE IF EXISTS dataset")
-    engine.execute("""
-        CREATE TABLE IF NOT EXISTS dataset (
-            id int NULL,
-            gender varchar NULL,
-            age int NULL,
-            hypertension int NULL,
-            heart_disease int NULL,
-            ever_married varchar NULL,
-            work_type varchar NULL,
-            Residence_type varchar NULL,
-            avg_glucose_level float8 NULL,
-            bmi float8 NULL,
-            smoking_status varchar NULL,
-            stroke int NULL,
-            CONSTRAINT dataset_pk PRIMARY KEY (id)
-        );
-    """)
+    with engine.connect() as conn:
+        conn.execute(text("DROP TABLE IF EXISTS dataset"))
+        conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS dataset (
+                id int NULL,
+                gender varchar NULL,
+                age int NULL,
+                hypertension int NULL,
+                heart_disease int NULL,
+                ever_married varchar NULL,
+                work_type varchar NULL,
+                Residence_type varchar NULL,
+                avg_glucose_level float8 NULL,
+                bmi float8 NULL,
+                smoking_status varchar NULL,
+                stroke int NULL,
+                CONSTRAINT dataset_pk PRIMARY KEY (id)
+            );
+        """))
     print("Table is recreated")
